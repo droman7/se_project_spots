@@ -13,7 +13,6 @@
 }
 
 .card__title {
-    height: 24px;
     margin: 12px 0 0;
     font-weight: 500;
     font-size: 20px;
@@ -34,12 +33,16 @@
 }
 
 .card__like-btn:hover {
-    color: rgba(33, 33, 33, 1);
     opacity: 1;
     cursor: pointer;
 }
 
 @media screen and (max-width: 627px) {
+
+    .card__title {
+        max-width: 250px;
+    }
+
     .card__image {
         height: 288px;
     }

@@ -8,6 +8,8 @@
     margin-right: 20px;
     height: 190px;
     width: 190px;
+    border-radius: 8px;
+    object-fit: cover;
 }
 
 .profile__column {
@@ -59,7 +61,6 @@
 }
 
 .profile__edit-btn:hover {
-    color: rgba(33, 33, 33, 1);
     opacity: 1;
     cursor: pointer;
 }
