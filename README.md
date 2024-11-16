@@ -7,6 +7,9 @@ An image sharing site
     Practice with the Figma resource helped me see how to change the webpage to a set design that will prove useful in real world applications.
     Implemented grid to layout the site and used media queries for smaller displays layouts. Webpage is now responsive 
 
+## Video
+Description of Project: https://drive.google.com/file/d/1P228RcqOY-NICO2D6SuS-VihmnG-Uvso/view?usp=sharing
+
 ## Tech Stack
 - HTML
 - CSS
