@@ -11,6 +11,7 @@
   justify-content: center;
   padding: 0 20px;
   visibility: hidden;
+
 }
 
 .modal_opened {
@@ -23,27 +24,76 @@
   max-width: 730px;
   width: 100%;
   box-sizing: border-box;
-  position: relative;
   border-radius: 8px;
+  position: relative;
+
 }
 
 .modal__close-btn {
-  background-image: url(../images/close-btn.svg);
-  color: #212121;
-  opacity: 40%;
+  background-image: url("../images/close-btn.svg");
   background-color: #fff;
+  opacity: 0.4;
   position: absolute;
   padding: 0;
-  top: 32px;
+  margin: 0;
   right: 50px;
   width: 40px;
   height: 40px;
   border: none;
+  cursor: pointer;
+}
+
+.modal__container_type_preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0;
+  margin-bottom: 8px;
+  background: none;
+  position: relative;
+}
+
+.modal__close-btn_type_preview {
+  position: absolute;
+  background-image: url("../images/Close\ preview.svg");
+  background-color: transparent;
+  opacity: 1;
+  top: 0;
+  right: -52.5px;
+}
+
+.modal__image {
+  width: 100%;
+  max-width: 80vw;
+  max-height: 80vh;
+  border-radius: 8px;
+  position: relative;
 }
 
 .modal__close-btn:hover {
   opacity: 1;
-  cursor: pointer;
+}
+
+.modal__close-btn_type_preview:hover {
+  opacity: 0.4;
+}
+
+.modal__caption {
+  padding: 4px 8px;
+  margin: 16px 0 0; 
+  background-color: rgba(33, 33, 33, 1);
+  box-sizing: border-box;
+  font-family:'Poppins', Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #fff;
+  border-radius: 8px;
+  position: absolute;
+  bottom: -40px;
+  left: 0;
 }
 
 .modal__title {
@@ -93,17 +143,12 @@
   }
 
   .modal__container {
-    padding: 12px;
+    padding: 16px;
   }
 
   .modal__title {
     font-size: 20px;
     margin: 10px 0 34px;
-  }
-
-  .modal__close-btn {
-    top: 12px;
-    right: 12px;
   }
 
   .modal__label {
@@ -116,5 +161,14 @@
 
   .modal__submit-btn {
     width: 100%;
+  }
+
+  .modal__close-btn_type_preview {
+    top:-41px;
+    right: 0;
+  }
+
+  .modal__caption {
+    font-size: 16px;
   }
 }
