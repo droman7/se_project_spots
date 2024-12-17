@@ -39,6 +39,7 @@
   height: 32px;
   width: 32px;
   opacity: 30%;
+  cursor: pointer;
 }
 
 .card__delete-btn:hover {
@@ -49,6 +50,8 @@
 
 .card__like-btn {
   background-image: url("../images/heart.svg");
+  background-repeat: no-repeat;
+  background-color: transparent;
   height: 20px;
   width: 23px;
   border: none;
@@ -63,6 +66,9 @@
 
 .card__like-btn_liked {
   background-image: url("../images/Like\ Icon\ Liked.svg");
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
   opacity: 1;
 }
 
@@ -77,6 +83,8 @@
 
    .card__delete-btn {
     position: absolute;
+    left: 246px;
+    top: 10px;
   }
 
   .card__title {
