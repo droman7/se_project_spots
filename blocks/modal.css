@@ -99,10 +99,10 @@
 
 .modal__caption {
   padding: 4px 8px;
-  margin: 16px 0 0; 
+  margin: 16px 0 0;
   background-color: rgba(33, 33, 33, 1);
   box-sizing: border-box;
-  font-family:'Poppins', Arial, Helvetica, sans-serif;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
@@ -112,7 +112,6 @@
   bottom: -40px;
   left: 0;
 }
-
 
 .modal__label {
   color: rgba(33, 33, 33, 0.7);
@@ -133,10 +132,24 @@
   font-weight: 500;
   border-radius: 8px;
   border: 1px solid rgba(33, 33, 33, 0.4);
+  margin-bottom: 0;
+}
+
+.modal__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
 }
 
 .modal__input:hover {
   border: 1px solid rgba(33, 33, 33, 1);
+}
+
+.modal__error {
+  display: block;
+  color: rgba(255, 0, 0, 0.7);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 17.6px;
+  /* margin-top: 8px; */
 }
 
 .modal__submit-btn {
@@ -149,6 +162,17 @@
   cursor: pointer;
 }
 
+.modal__submit-btn:hover {
+  cursor: pointer;
+  background-color: #212121;
+  opacity: 0.8;
+}
+
+.modal__submit-btn_disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 @media screen and (max-width: 627px) {
   .modal {
     padding: 0 10px;
@@ -159,7 +183,7 @@
   }
 
   .modal__image {
-   max-width: 288px;
+    max-width: 288px;
   }
 
   .modal__title {
@@ -180,12 +204,12 @@
     width: 100%;
   }
 
-  .modal__preview{
+  .modal__preview {
     margin: auto 16px;
   }
 
   .modal__close-btn_type_preview {
-    top:-41px;
+    top: -41px;
     right: 0;
   }
 
