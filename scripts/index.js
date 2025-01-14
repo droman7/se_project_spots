@@ -127,6 +127,10 @@ function getCardElement(data) {
 editModalBtn.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
+  const inputList = Array.from(
+    editFormElement.querySelectorAll(settings.inputSelector)
+  );
+  resetValidation(editFormElement, inputList, settings);
   openModal(editModal);
 });
 
@@ -136,21 +140,28 @@ closeButtons.forEach((button) => {
   button.addEventListener("click", () => closeModal(modal));
 });
 
-// editModalCloseBtn.addEventListener("click", () =>{
-//   closeModal(editModal);
-//   });
-
+// Opens New Post Modal
 cardModalBtn.addEventListener("click", () => {
   openModal(cardModal);
 });
 
-// cardModalCloseBtn.addEventListener("click", () => {
-//   closeModal(cardModal);
-// });
+//Closes when clicked outside the modal
+document.addEventListener("click", (event) => {
+  const openModal = document.querySelector(".modal_opened");
+  if (openModal && event.target === openModal) {
+    closeModal(openModal);
+  }
+});
 
-// previewModalCloseBtn.addEventListener("click", () => {
-//   closeModal(previewModal);
-// });
+//Closes when ESC key is pressed down
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    const openModal = document.querySelector(".modal_opened");
+    if (openModal) {
+      closeModal(openModal);
+    }
+  }
+});
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
