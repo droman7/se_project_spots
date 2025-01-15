@@ -77,8 +77,7 @@ function handleEditFormSubmit(evt) {
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
   const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
-  const cardElement = getCardElement(inputValues);
-  renderCard(inputValues, "prepend");
+  renderCard(inputValues);
   cardForm.reset();
   disableButton(cardSubmitButton, settings);
   closeModal(cardModal);
@@ -137,38 +136,40 @@ cardModalBtn.addEventListener("click", () => {
   openModal(cardModal);
 });
 
-//Closes when clicked outside the modal
-function outsideClick(event) {
-  const openModal = document.querySelector(".modal_opened");
-  if (openModal && event.target === openModal) {
+// Used reviwer suggestion to combine overlay and close buttons
+const popups = document.querySelectorAll(".modal");
+
+popups.forEach((popup) => {
+  popup.addEventListener("mousedown", (evt) => {
+    if (evt.target.classList.contains("modal_opened")) {
+      closeModal(popup);
+    }
+    if (evt.target.classList.contains("modal__close-btn")) {
+      closeModal(popup);
+    }
+  });
+});
+
+//Closes when ESC key is pressed down
+function closeOnEscPress(event) {
+  if (event.key === "Escape") {
+    const openModal = document.querySelector(".modal_opened");
     closeModal(openModal);
   }
 }
 
-//Closes when ESC key is pressed down
-function buttonEscPress(event) {
-  if (event.key === "Escape") {
-    const openModal = document.querySelector(".modal_opened");
-    if (openModal) {
-      closeModal(openModal);
-    }
-  }
-}
-
-// document alone wouldn't let me remove the listeners until I set it up in a function.
-// better if both are seperate  to open and close
-// Opens the modals and adds listeners
+// Opens modal and listens
+// Tutor suggested keyup as opposed to keydown
+// Removes any accidently key presses
 function openModal(modal) {
   modal.classList.add("modal_opened");
-  document.addEventListener("click", outsideClick);
-  document.addEventListener("keydown", buttonEscPress);
+  document.addEventListener("keyup", closeOnEscPress);
 }
 
-// Closes the modals and removes listeners
+// Closes modal and removes listeners
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-  document.removeEventListener("click", outsideClick);
-  document.removeEventListener("keydown", buttonEscPress);
+  document.removeEventListener("keyup", closeOnEscPress);
 }
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
