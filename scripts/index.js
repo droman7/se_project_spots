@@ -67,14 +67,6 @@ const closeButtons = document.querySelectorAll(".modal__close-btn");
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-}
-
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-}
-
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = editModalNameInput.value;
@@ -86,7 +78,7 @@ function handleAddCardSubmit(evt) {
   evt.preventDefault();
   const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
   const cardElement = getCardElement(inputValues);
-  cardsList.prepend(cardElement);
+  renderCard(inputValues, "prepend");
   cardForm.reset();
   disableButton(cardSubmitButton, settings);
   closeModal(cardModal);
@@ -146,22 +138,38 @@ cardModalBtn.addEventListener("click", () => {
 });
 
 //Closes when clicked outside the modal
-document.addEventListener("click", (event) => {
+function outsideClick(event) {
   const openModal = document.querySelector(".modal_opened");
   if (openModal && event.target === openModal) {
     closeModal(openModal);
   }
-});
+}
 
 //Closes when ESC key is pressed down
-document.addEventListener("keydown", (event) => {
+function buttonEscPress(event) {
   if (event.key === "Escape") {
     const openModal = document.querySelector(".modal_opened");
     if (openModal) {
       closeModal(openModal);
     }
   }
-});
+}
+
+// document alone wouldn't let me remove the listeners until I set it up in a function.
+// better if both are seperate  to open and close
+// Opens the modals and adds listeners
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+  document.addEventListener("click", outsideClick);
+  document.addEventListener("keydown", buttonEscPress);
+}
+
+// Closes the modals and removes listeners
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
+  document.removeEventListener("click", outsideClick);
+  document.removeEventListener("keydown", buttonEscPress);
+}
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
