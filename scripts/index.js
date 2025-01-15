@@ -125,12 +125,6 @@ editModalBtn.addEventListener("click", () => {
   openModal(editModal);
 });
 
-//Added universal close button
-closeButtons.forEach((button) => {
-  const modal = button.closest(".modal");
-  button.addEventListener("click", () => closeModal(modal));
-});
-
 // Opens New Post Modal
 cardModalBtn.addEventListener("click", () => {
   openModal(cardModal);
