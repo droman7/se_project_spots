@@ -7,7 +7,7 @@
     "build": "webpack --mode production",
     "dev": "webpack serve --mode development",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages-clean && gh-pages -d dist -r https://github.com/droman7/se_project_spots/"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/droman7/se_project_spots/issues"
   },
-  "homepage": "https://droman7.github.io/se_project_spots/",
+  "homepage": "https://droman7.github.io/se_project_spots",
   "devDependencies": {
     "@babel/core": "7.18.9",
     "@babel/preset-env": "7.18.9",
