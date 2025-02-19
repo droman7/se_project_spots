@@ -74,7 +74,7 @@
 
 .modal__close-btn_type_preview {
   position: absolute;
-  background-image: url("../images/Close\ preview.svg");
+  background-image: url("../images/Close_preview.svg");
   background-color: transparent;
   opacity: 1;
   top: 0;

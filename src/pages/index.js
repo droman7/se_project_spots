@@ -1,3 +1,13 @@
+import "../pages/index.css";
+import logoMain from "../images/logo.svg";
+import pencilSrc from "../images/pencil.svg";
+import plusSrc from "../images/plus.svg";
+import {
+  enableValidation,
+  settings,
+  resetValidation,
+} from "../scripts/validation.js";
+
 const initialCards = [
   {
     name: "Val Thorens",
@@ -66,6 +76,15 @@ const closeButtons = document.querySelectorAll(".modal__close-btn");
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
+
+const logoImage = document.getElementById("image-logo");
+logoImage.src = logoMain;
+
+const pencilImage = document.getElementById("image-pencil");
+pencilImage.src = pencilSrc;
+
+const plusImage = document.getElementById("image-plus");
+plusImage.src = plusSrc;
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
@@ -178,3 +197,5 @@ function renderCard(item, method = "prepend") {
 initialCards.forEach((item) => {
   renderCard(item, "append");
 });
+
+enableValidation(settings);
