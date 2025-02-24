@@ -229,8 +229,16 @@
     padding: 0 10px;
   }
 
+  .modal .profile__avatar-btn {
+    opacity: 0;
+  }
+
   .modal__container {
     padding: 12px;
+  }
+
+  .modal__container .profile__avatar-btn {
+    opacity: 0;
   }
 
   .modal__image {
