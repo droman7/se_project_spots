@@ -28,7 +28,7 @@
               />
             </button>
             <img
-              src="./images/avatar.jpg"
+              src="<%=require('../src/images/avatar.jpg')%>"
               id="avatar-id"
               alt="Bessie Coleman"
               class="profile__avatar"
@@ -105,7 +105,7 @@
                 class="modal__error"
               ></span>
             </label>
-            <button type="submit" class="modal__submit-btn">Save</button>
+            <button type="submit" class="modal__submit-btn modal__submit-btn_disabled">Save</button>
           </form>
         </div>
       </div>
@@ -180,6 +180,7 @@
             Profile Picture
             <input
               id="profile-avatar-input"
+              type="url"
               class="modal__input"
               name="avatar"
               placeholder="Paste the link to an image"
@@ -187,7 +188,7 @@
             />
             <span id="profile-avatar-input-error" class="modal__error"></span>
           </label>
-          <button type="submit" class="modal__submit-btn">Save</button>
+          <button type="submit" class="modal__submit-btn modal__submit-btn_disabled">Save</button>
         </form>
       </div>
       </div>
@@ -204,7 +205,7 @@
           id="delete-form"
           novalidate
           >
-          <button type="submit" class="modal__submit-btn delete-btn">Delete</button>
+          <button type="submit" class="modal__submit-btn delete-btn ">Delete</button>
           <button type="button" class="modal__submit-btn cancel-btn">Cancel</button>
           </form>
         </div>
