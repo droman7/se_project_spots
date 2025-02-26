@@ -123,7 +123,6 @@ function handleAddCardSubmit(evt) {
       renderCard(newCard, "prepend");
       closeModal(cardModal);
       cardForm.reset();
-
       disableButton(submitBtn, settings);
     })
     .catch((err) => {
@@ -147,7 +146,6 @@ function handleAvatarSubmit(evt) {
       avatarEl.src = data.avatar;
       closeModal(avatarModal);
       avatarForm.reset();
-
       disableButton(submitBtn, settings);
     })
     .catch((err) => {
@@ -167,17 +165,17 @@ function handleDeleteSubmit(evt) {
   api
     .deleteCard(selectedCardId)
     .then(() => {
-      selectedCard;
       selectedCard.remove();
       closeModal(deleteModal);
-      selectedCard = cardElement;
-      selectedCardId = cardId;
+      selectedCard = undefined;
+      selectedCardId = undefined;
     })
     .catch((err) => {
       console.error(err);
       submitBtn.disabled = false;
     })
     .finally(() => {
+      submitBtn.disabled = false;
       setButtonText(submitBtn, false, "Delete", "Deleting...");
     });
 }
